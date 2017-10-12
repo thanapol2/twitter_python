@@ -16,8 +16,13 @@ class Test(Resource):
 
         return jsonify(data)
 
+class Test2(Resource):
+    def get(self, employee_id):
+        data = {"user2_proximity": employee_id}
+        return jsonify(data)
 
 api.add_resource(Test, '/test')
+api.add_resource(Test2, '/<employee_id>')
 
 if __name__ == '__main__':
     app.run(port='5002')
